@@ -7,8 +7,10 @@ if nargin == 0
     winopen(exe)
 else
     filenames = convert_filenames(filenames);
-    cmd = sprintf('"%s" "%s" &', exe, filenames{:});
-    dos(cmd);
+    for n = 1:numel(filenames)
+        cmd = sprintf('"%s" "%s" &', exe, filenames{n});
+        dos(cmd);
+    end
 end
 
 end
